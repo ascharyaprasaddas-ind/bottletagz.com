@@ -95,8 +95,17 @@
         
         footer { background: var(--deep-navy); color: white; padding: 40px 10% 20px; text-align: center; }
 
+        /* 1. This part works for ALL devices (Laptop + Mobile) */
+        .contact-form iframe {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: none;
+        }
+
+        /* 2. This part ONLY triggers on Mobile screens */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
+            .nav-links { display: none; } /* Note: If you added the hamburger menu, this will change to 'flex' in your other code */
             .hero h1 { font-size: 2rem; }
             section { padding: 60px 5%; }
         }
@@ -105,15 +114,22 @@
 <body>
 
     <nav>
-        <div class="logo">Bottle<span>Tagz</span></div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Products</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <div class="logo">Bottle<span>Tagz</span></div>
+
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Products</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
     <section class="hero" id="home">
         <h1>Turn Every Sip into a <br>Brand Impression</h1>
@@ -207,13 +223,18 @@
             <div class="bar"></div>
         </div>
         <div class="contact-flex">
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <input type="tel" placeholder="Phone Number" required>
-                <textarea rows="5" placeholder="Project Details (Quantity, Date, Location)"></textarea>
-                <button type="submit" class="btn btn-primary" style="background: var(--primary-blue); color: white; width: 100%;">Submit Inquiry</button>
-            </form>
+            <div class="contact-form" style="padding:0; overflow:hidden;">
+    <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdSngDAHwfCzwyyAEdXtf0qk9AvSrUblKgutOmaB83ZvNHqqQ/viewform?embedded=true" 
+        width="100%" 
+        height="850" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+        style="border:none; border-radius:15px;">
+        Loading…
+    </iframe>
+</div>
             <div class="contact-info">
                 <h3>Contact Details</h3>
                 <p><strong>Parent Company:</strong> DAS SONS PVT. LTD.</p>
