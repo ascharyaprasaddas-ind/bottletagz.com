@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BottleTagz | Premium Customized Water Bottle Branding for Corporates & Events</title>
+    <meta name="description" content="BottleTagz by DAS SONS PVT. LTD. provides high-quality branded water bottles for weddings, corporate events, and political campaigns across India.">
+    <meta name="keywords" content="custom water bottles, corporate branding, wedding water bottles, bulk water supply India, BottleTagz">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --aqua-accent: #00d4ff;
+            --deep-navy: #002347;
+            --soft-white: #f8faff;
+            --glass: rgba(255, 255, 255, 0.9);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--soft-white); color: #333; overflow-x: hidden; scroll-behavior: smooth; }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; height: 80px;
+            background: var(--glass); backdrop-filter: blur(10px);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 10%; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--primary-blue); }
+        .logo span { color: var(--aqua-accent); }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--deep-navy); font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--aqua-accent); }
+
+        /* Hero Section */
+        .hero {
+            height: 100 vertical-height; min-height: 90vh;
+            background: linear-gradient(135deg, rgba(0,86,179,0.9), rgba(0,212,255,0.8)), 
+                        url('https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&q=80');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; color: white; padding: 0 20px;
+        }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; line-height: 1.2; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 700px; }
+        .cta-group { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; cursor: pointer; border: none; }
+        .btn-primary { background: white; color: var(--primary-blue); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .btn-outline { border: 2px solid white; color: white; }
+
+        /* Features/Services */
+        section { padding: 80px 10%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--deep-navy); }
+        .section-title .bar { width: 70px; height: 5px; background: var(--aqua-accent); margin: 10px auto; border-radius: 10px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { 
+            background: white; padding: 40px; border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; text-align: center;
+        }
+        .card:hover { transform: translateY(-10px); }
+        .card i { font-size: 3rem; color: var(--aqua-accent); margin-bottom: 20px; }
+
+        /* Process Steps */
+        .process-container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
+        .step { text-align: center; flex: 1; min-width: 200px; }
+        .step-num { 
+            width: 60px; height: 60px; background: var(--primary-blue); color: white; 
+            border-radius: 50%; display: flex; items-center; justify-content: center; 
+            margin: 0 auto 15px; font-size: 1.5rem; font-weight: bold;
+            display: flex; align-items: center;
+        }
+
+        /* Floating Buttons */
+        .floating-btns { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 2000; }
+        .float-icon { 
+            width: 60px; height: 60px; border-radius: 50%; display: flex; 
+            align-items: center; justify-content: center; color: white; 
+            font-size: 1.8rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s;
+        }
+        .whatsapp { background: #25d366; }
+        .phone { background: var(--primary-blue); }
+        .float-icon:hover { transform: scale(1.1); }
+
+        /* Contact Form */
+        .contact-flex { display: flex; gap: 50px; flex-wrap: wrap; }
+        .contact-form { flex: 2; min-width: 300px; background: white; padding: 40px; border-radius: 20px; }
+        .contact-info { flex: 1; min-width: 300px; }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
+        
+        footer { background: var(--deep-navy); color: white; padding: 40px 10% 20px; text-align: center; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2rem; }
+            section { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Bottle<span>Tagz</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Products</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Turn Every Sip into a <br>Brand Impression</h1>
+        <p>Premium customized water bottle branding for corporates, events, and promotions. Delivering quality across India with BottleTagz.</p>
+        <div class="cta-group">
+            <a href="#contact" class="btn btn-primary">Get a Quote</a>
+            <a href="https://wa.me/919999999999" class="btn btn-outline">WhatsApp Us</a>
+        </div>
+    </section>
+
+    <section id="process">
+        <div class="section-title">
+            <h2>Our Seamless Process</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="process-container">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Consult</h3>
+                <p>Share your event details & bottle requirements.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Design</h3>
+                <p>Our experts create your brand's custom labels.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>Print</h3>
+                <p>High-resolution, eco-friendly waterproof printing.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <h3>Deliver</h3>
+                <p>Pan-India logistics to your doorstep.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background: #f0f4f8;">
+        <div class="section-title">
+            <h2>Custom Solutions</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-building"></i>
+                <h3>Corporate Branding</h3>
+                <p>Impress clients with branded hydration in boardrooms and conferences.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-heart"></i>
+                <h3>Events & Weddings</h3>
+                <p>Personalized labels that match your wedding theme and hospitality.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Political Campaigns</h3>
+                <p>High-volume promotional bottles for maximum voter outreach.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-hotel"></i>
+                <h3>Hotels & Tourism</h3>
+                <p>Premium glass and PET options for luxury guest experiences.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="contact-flex">
+            <div class="contact-info">
+                <h2>Our Story</h2>
+                <div class="bar" style="margin-left: 0;"></div>
+                <p style="margin: 20px 0;">BottleTagz is a specialized unit of <strong>DAS SONS PVT. LTD.</strong> With decades of industrial expertise, we've mastered the art of "Liquid Advertising." We believe a water bottle isn't just a utility—it's a mobile billboard for your brand.</p>
+                <ul style="list-style: none;">
+                    <li><i class="fas fa-check-circle color-aqua"></i> Pan-India Logistics</li>
+                    <li><i class="fas fa-check-circle color-aqua"></i> Eco-Friendly PET Options</li>
+                    <li><i class="fas fa-check-circle color-aqua"></i> FDA Approved Quality</li>
+                </ul>
+            </div>
+            <div class="contact-form" style="background: var(--primary-blue); color: white;">
+                <h3>Why Choose Us?</h3>
+                <p>We combine high-speed production with boutique-level attention to detail. Whether you need 500 bottles or 500,000, we deliver excellence.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-title">
+            <h2>Inquiry & Quotes</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="contact-flex">
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <textarea rows="5" placeholder="Project Details (Quantity, Date, Location)"></textarea>
+                <button type="submit" class="btn btn-primary" style="background: var(--primary-blue); color: white; width: 100%;">Submit Inquiry</button>
+            </form>
+            <div class="contact-info">
+                <h3>Contact Details</h3>
+                <p><strong>Parent Company:</strong> DAS SONS PVT. LTD.</p>
+                <p><i class="fas fa-map-marker-alt"></i> Industrial Area, New Delhi / Mumbai / Bangalore</p>
+                <p><i class="fas fa-clock"></i> Mon - Sat: 10:00 AM - 7:00 PM</p>
+                <div style="margin-top: 20px; width: 100%; height: 200px; background: #ddd; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                    [Google Map Placeholder]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="floating-btns">
+        <a href="tel:+919999999999" class="float-icon phone"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/919999999999" class="float-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 BottleTagz | A Unit of <strong>DAS SONS PVT. LTD.</strong></p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Eco-friendly Branding • Pan-India Delivery • Corporate Excellence</p>
+    </footer>
+
+    <script>
+        // Simple Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.height = '70px';
+                nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.height = '80px';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Form Submission Logic
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your inquiry! The BottleTagz team will contact you within 2-4 business hours.');
+        });
+    </script>
+</body>
+</html>
