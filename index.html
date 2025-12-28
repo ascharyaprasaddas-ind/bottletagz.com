@@ -125,14 +125,19 @@
         right: -100%; /* Off-screen to the right */
         top: 0;
         height: 100vh;
-        width: 70%; /* Takes up 70% of screen width */
-        background: var(--primary-blue);
+        width: 100%; /* Takes up 100% of screen width */
+        background: #0056b3; /* BottleTagz Blue */
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transition: 0.4s ease-in-out;
+        transition: 0.5s all ease;
         z-index: 1000;
         gap: 30px;
+        /* This is the VISIBLE state triggered by JavaScript */
+    .nav-links.active {
+        right: 0; /* Slides it into view */
+    }
+}
     }
 
     /* 2. Show the hamburger menu! */
@@ -303,7 +308,7 @@
                 <p><i class="fas fa-clock"></i> Mon - Sat: 10:00 AM - 5:00 PM</p>
                 <div style="margin-top: 20px; width: 100%; height: 200px; background: #ddd; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
                     <a href="https://maps.app.goo.gl/DeHQGZEJrsqazdx58" target="_blank">View Location on Google Maps</a>
-            <div style="margin-top: 20px; width: 100%; height: 180px; background: #e0e7ff; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: var(--primary-blue); font-weight: 600;">
+            <div style="margin-top: 20px; width: 100%; height: 200px; background: #e0e7ff; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: var(--primary-blue); font-weight: 600;">
                 <i class="fas fa-map-marked-alt" style="margin-right: 10px;"></i> Serving Pan-Odisha
             </div>
         </div>
@@ -316,27 +321,49 @@
 
     <footer>
         <p>&copy; 2025 BottleTagz | A Unit of <strong>DAS SONS PVT. LTD.</strong></p>
-        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Eco-friendly Branding • Pan-Odisha Delivery • Corporate Excellence</p>
+        <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.7;">Eco-friendly Branding • Corporate Excellence</p>
     </footer>
 
-    <script>
-        // Simple Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.height = '70px';
-                nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.height = '80px';
-                nav.style.boxShadow = 'none';
-            }
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. MOBILE MENU LOGIC
+    const menuToggle = document.querySelector('#mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    const body = document.body;
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            
+            // Prevents background scrolling when menu is open
+            body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
         });
 
-        // Form Submission Logic
-        document.querySelector('form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your inquiry! The BottleTagz team will contact you within 2-4 business hours.');
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                body.style.overflow = 'auto';
+            });
         });
-    </script>
+    }
+
+    // 2. NAVBAR SCROLL EFFECT
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.style.height = '70px';
+            nav.style.background = 'rgba(255, 255, 255, 0.95)'; // Makes it slightly more solid on scroll
+            nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+        } else {
+            nav.style.height = '80px';
+            nav.style.background = 'rgba(255, 255, 255, 0.9)'; 
+            nav.style.boxShadow = 'none';
+        }
+    });
+});
+</script>
 </body>
 </html>
