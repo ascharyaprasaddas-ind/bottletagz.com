@@ -87,13 +87,26 @@
         .phone { background: var(--primary-blue); }
         .float-icon:hover { transform: scale(1.1); }
 
-        /* Contact Form */
-        .contact-flex { display: flex; gap: 50px; flex-wrap: wrap; }
-        .contact-form { flex: 2; min-width: 300px; background: white; padding: 40px; border-radius: 20px; }
-        .contact-info { flex: 1; min-width: 300px; }
-        input, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
-        
-        footer { background: var(--deep-navy); color: white; padding: 40px 10% 20px; text-align: center; }
+        /* Styling for the new Inquiry Box */
+.inquiry-container {
+    background: white;
+    padding: 50px 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid #eef2f6;
+}
+
+.inquiry-container h3 {
+    color: var(--deep-navy);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.inquiry-container p {
+    color: #666;
+    margin-bottom: 25px;
+}
 
         /* 1. This part works for ALL devices (Laptop + Mobile) */
         .contact-form iframe {
@@ -103,12 +116,55 @@
             border: none;
         }
 
-        /* 2. This part ONLY triggers on Mobile screens */
-        @media (max-width: 768px) {
-            .nav-links { display: none; } /* Note: If you added the hamburger menu, this will change to 'flex' in your other code */
-            .hero h1 { font-size: 2rem; }
-            section { padding: 60px 5%; }
-        }
+       /* Tablet & Mobile Media Query */
+@media (max-width: 768px) {
+    /* 1. Hide the standard desktop links */
+    .nav-links {
+        display: none; /* Initially hidden until button is clicked */
+        position: fixed;
+        right: -100%; /* Off-screen to the right */
+        top: 0;
+        height: 100vh;
+        width: 70%; /* Takes up 70% of screen width */
+        background: var(--primary-blue);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s ease-in-out;
+        z-index: 1000;
+        gap: 30px;
+    }
+
+    /* 2. Show the hamburger menu! */
+    .menu-toggle {
+        display: flex !important; /* Forces it to show */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000; /* Higher than the menu itself */
+    }
+
+    /* 3. Ensure the individual bars are visible */
+    .menu-toggle .bar {
+        width: 30px;
+        height: 4px;
+        background-color: var(--primary-blue); /* If your header is white */
+        margin: 3px 0;
+        transition: 0.4s;
+        display: block;
+    }
+
+    /* 4. This class will be added by JavaScript when you click the button */
+    .nav-links.active {
+        display: flex;
+        right: 0;
+    }
+    
+    /* Change bars to white when menu is open/active */
+    .menu-toggle.active .bar {
+        background-color: white;
+    }
+}
     </style>
 </head>
 <body>
@@ -218,35 +274,41 @@
     </section>
 
     <section id="contact">
-        <div class="section-title">
-            <h2>Inquiry & Quotes</h2>
-            <div class="bar"></div>
+    <div class="section-title">
+        <h2>Inquiry & Quotes</h2>
+        <div class="bar"></div>
+    </div>
+
+    <div class="contact-flex">
+        <div class="inquiry-container" style="flex: 2;">
+            <i class="fas fa-file-alt" style="font-size: 3rem; color: var(--aqua-accent); margin-bottom: 20px;"></i>
+            <h3>Request a Custom Quote</h3>
+            <p>Fill out our quick branding requirement form. Our experts from <strong>DAS SONS PVT. LTD.</strong> will get back to you with the best bulk pricing.</p>
+            
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdSngDAHwfCzwyyAEdXtf0qk9AvSrUblKgutOmaB83ZvNHqqQ/viewform?embedded=true" target="_blank" class="btn btn-primary" style="background: var(--primary-blue); color: white; display: inline-block; padding: 18px 40px; font-size: 1.1rem;">
+                Start My Inquiry <i class="fas fa-external-link-alt" style="margin-left: 10px;"></i>
+            </a>
+            
+            <p style="font-size: 0.85rem; margin-top: 20px; opacity: 0.7;">
+                <i class="fas fa-shield-alt"></i> Secure Form by Google
+            </p>
         </div>
-        <div class="contact-flex">
-            <div class="contact-form" style="padding:0; overflow:hidden;">
-    <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLSdSngDAHwfCzwyyAEdXtf0qk9AvSrUblKgutOmaB83ZvNHqqQ/viewform?embedded=true" 
-        width="100%" 
-        height="850" 
-        frameborder="0" 
-        marginheight="0" 
-        marginwidth="0"
-        style="border:none; border-radius:15px;">
-        Loading…
-    </iframe>
-</div>
-            <div class="contact-info">
-                <h3>Contact Details</h3>
-                <p><strong>Parent Company:</strong> DAS SONS PVT. LTD.</p>
-                <p><i class="fas fa-map-marker-alt"></i> Badambadi Colony, Odisha, India.</p>
+
+        <div class="contact-info">
+            <h3>Direct Contact</h3>
+            <p><strong>Parent Company:</strong> DAS SONS PVT. LTD.</p>
+            <p><i class="fas fa-envelope"></i> das2sonspvtltd@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +91 9538986658</p>
+            <p><i class="fas fa-map-marker-alt"></i> Badambadi Colony, Odisha, India.</p>
                 <p><i class="fas fa-clock"></i> Mon - Sat: 10:00 AM - 5:00 PM</p>
                 <div style="margin-top: 20px; width: 100%; height: 200px; background: #ddd; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
                     <a href="https://maps.app.goo.gl/DeHQGZEJrsqazdx58" target="_blank">View Location on Google Maps</a>
-                </div>
+            <div style="margin-top: 20px; width: 100%; height: 180px; background: #e0e7ff; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: var(--primary-blue); font-weight: 600;">
+                <i class="fas fa-map-marked-alt" style="margin-right: 10px;"></i> Serving Pan-Odisha
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
     <div class="floating-btns">
         <a href="tel:+919538986658" class="float-icon phone"><i class="fas fa-phone"></i></a>
         <a href="https://wa.me/919538986658" class="float-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
